@@ -7,8 +7,13 @@ $(function() {
     var inputMinute = parseInt($("#alarmMinute").val());
     var newAlarm = new Alarm(inputHour, inputMinute);
 
-    var alarmSet = newAlarm.triggerAlarm(inputHour, inputMinute);
-
-    $("#time").text(alarmSet);
+    var timeLoop = setInterval(function() { alarm() }, 1000);
+    function alarm() {
+      var alarmSet = newAlarm.triggerAlarm(inputHour, inputMinute);
+      if (alarmSet) {
+        // clearInterval(timeLoop);
+        $("#alarm").text("Alarm!!");
+      }
+    };
   });
 });

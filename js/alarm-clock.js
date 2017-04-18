@@ -11,9 +11,9 @@ function Alarm(inputHour, inputMinute) {
 
 Alarm.prototype.triggerAlarm = function(inputHour, inputMinute) {
   if (inputHour === moment().hour()  && inputMinute === moment().minute()) {
-    console.log("No more sleep");
+    return true;
   } else {
-    console.log("Keep sleeping");
+    return false;
   }
 };
 
